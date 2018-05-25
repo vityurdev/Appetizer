@@ -24,6 +24,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private static final String TAG = "RegisterActivity";
+
     private EditText usernameET;
     private EditText emailET;
     private EditText passwordET;
