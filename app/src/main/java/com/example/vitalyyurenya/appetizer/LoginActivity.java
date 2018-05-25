@@ -23,6 +23,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "LoginActivity";
+
     private EditText usernameET;
     private EditText passwordET;
 
@@ -93,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<AuthResponse> call, Throwable t) {
-                        Log.e("lol", t.getMessage());
+                        Log.e(TAG, t.getMessage());
                     }
                 });
             }
