@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.vitalyyurenya.appetizer.api.AuthApi;
-import com.example.vitalyyurenya.appetizer.api.AuthResponse;
+import com.example.vitalyyurenya.appetizer.api.responses.AuthResponse;
 import com.example.vitalyyurenya.appetizer.models.User;
 
 import retrofit2.Call;

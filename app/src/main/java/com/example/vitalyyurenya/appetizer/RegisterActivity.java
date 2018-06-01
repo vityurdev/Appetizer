@@ -5,7 +5,6 @@ import android.accounts.AccountManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.vitalyyurenya.appetizer.api.AuthApi;
-import com.example.vitalyyurenya.appetizer.api.AuthResponse;
+import com.example.vitalyyurenya.appetizer.api.responses.AuthResponse;
 import com.example.vitalyyurenya.appetizer.models.User;
 
 import retrofit2.Call;

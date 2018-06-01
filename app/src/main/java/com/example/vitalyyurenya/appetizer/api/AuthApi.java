@@ -1,12 +1,10 @@
 package com.example.vitalyyurenya.appetizer.api;
 
+import com.example.vitalyyurenya.appetizer.api.responses.AuthResponse;
 import com.example.vitalyyurenya.appetizer.models.User;
-
-import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
 
 public interface AuthApi {

@@ -1,4 +1,4 @@
-package com.example.vitalyyurenya.appetizer.api;
+package com.example.vitalyyurenya.appetizer.api.responses;
 
 public class AuthResponse {
     private String auth;
