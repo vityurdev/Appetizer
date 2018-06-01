@@ -37,26 +37,12 @@ public class FeedActivity extends AppCompatActivity {
         feedTextView = findViewById(R.id.feed_tv);
         logoutButton = findViewById(R.id.feed_logout_btn);
 
-        logoutButton.setEnabled(false);
-
         accountManager = AccountManager.get(getApplicationContext());
 
         final Account[] account = accountManager.getAccountsByType("com.vityur.appetizer.account");
 
-        if (account != null && account.length == 1) {
-            String username = account[0].name;
-            String authToken = accountManager.peekAuthToken(account[0], "com.vityur.appetizer.account.token");
-            feedTextView.setText("Welcome, " + username + ". Your token is " + authToken);
-            logoutButton.setEnabled(true);
-        } else if (account == null){
-            feedTextView.setText("account == null");
-        } else if (account.length == 0) {
-            feedTextView.setText("account.length == 0");
-        } else if (account.length > 1) {
-            feedTextView.setText("account.length > 1");
-        } else {
-            feedTextView.setText("Different shit");
-        }
+        String username = account[0].name;
+        String authToken = accountManager.peekAuthToken(account[0], "com.vityur.appetizer.account.token");
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
