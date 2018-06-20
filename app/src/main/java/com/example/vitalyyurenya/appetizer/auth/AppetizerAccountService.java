@@ -1,4 +1,4 @@
-package com.example.vitalyyurenya.appetizer;
+package com.example.vitalyyurenya.appetizer.auth;
 
 import android.app.Service;
 import android.content.Intent;

@@ -8,8 +8,11 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface AuthApi {
-    String BASE_URL = "http://192.168.56.1:8081";
-    // String BASE_URL = "http://localhost:8081";
+
+    // String BASE_URL = "http://192.168.56.1:8081"; // for emulator
+    // String BASE_URL = "http://localhost:8081"; // for real USB-connected device
+
+    String BASE_URL = "https://674ce85d.ngrok.io"; // ngrok (provide your own link)
 
     @POST("api/auth/register")
     Call<AuthResponse> register(@Body User user);

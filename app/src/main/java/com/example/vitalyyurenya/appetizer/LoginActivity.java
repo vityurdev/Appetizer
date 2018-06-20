@@ -42,13 +42,21 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.login_btn);
         redirRegisterButton = findViewById(R.id.redir_register_btn);
 
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final User user = new User(
-                        usernameET.getText().toString(),
+                String username = usernameET.getText().toString();
+                final String password = passwordET.getText().toString();
+
+                final User user = new User(null,
+                        username,
                         null,
-                        passwordET.getText().toString()
+                        password,
+                        null,
+                        null,
+                        null,
+                        null
                 );
 
                 Retrofit retrofit = new Retrofit.Builder()
@@ -80,14 +88,18 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (response.code() == 200) {
                             String authToken = response.body().getToken();
+                            String userId = response.body().getUserId();
 
                             AccountManager accountManager = AccountManager.get(getApplicationContext());
 
                             Account account = new Account(user.getUsername(), "com.vityur.appetizer.account");
-                            accountManager.addAccountExplicitly(account, user.getUsername(), null);
+                            Bundle userdata = new Bundle();
+                            userdata.putString("USER_ID", userId);
+                            accountManager.addAccountExplicitly(account, password, userdata);
+
                             accountManager.setAuthToken(account, "com.vityur.appetizer.account.token", authToken);
 
-                            Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(intent);
                             finish();
                         }

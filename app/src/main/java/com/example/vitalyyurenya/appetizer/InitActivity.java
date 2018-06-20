@@ -21,7 +21,7 @@ public class InitActivity extends AppCompatActivity {
         if (account.length < 1) {
             forwardIntent = new Intent(InitActivity.this, LoginActivity.class);
         } else {
-            forwardIntent = new Intent(InitActivity.this, FeedActivity.class);
+            forwardIntent = new Intent(InitActivity.this, HomeActivity.class);
         }
 
         startActivity(forwardIntent);

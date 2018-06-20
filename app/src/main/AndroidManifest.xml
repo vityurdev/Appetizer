@@ -2,18 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vitalyyurenya.appetizer">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
-    <uses-permission
-        android:name="android.permission.AUTHENTICATE_ACCOUNTS"
-        />
-    <uses-permission
-        android:name="android.permission.GET_ACCOUNTS"
-         />
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission
         android:name="android.permission.MANAGE_ACCOUNTS"
         android:maxSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -31,17 +28,19 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".FeedActivity"></activity>
+        <activity android:name=".HomeActivity" />
 
-        <service android:name=".AppetizerAccountService">
+        <service android:name=".auth.AppetizerAccountService">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
+
             <meta-data
                 android:name="android.accounts.AccountAuthenticator"
-                android:resource="@xml/authenticator">
-            </meta-data>
+                android:resource="@xml/authenticator"></meta-data>
         </service>
+
+        <activity android:name=".AddRecipeActivity"></activity>
     </application>
 
 </manifest>

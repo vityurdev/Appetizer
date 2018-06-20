@@ -61,7 +61,15 @@ public class RegisterActivity extends AppCompatActivity {
                 final String email = emailET.getText().toString();
                 final String password = passwordET.getText().toString();
 
-                final User user = new User(username, email, password);
+                final User user = new User(null,
+                        username,
+                        email,
+                        password,
+                        null,
+                        null,
+                        null,
+                        null
+                );
 
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(AuthApi.BASE_URL)
@@ -85,14 +93,19 @@ public class RegisterActivity extends AppCompatActivity {
                             Log.i("lol", "success");
 
                             String authToken = response.body().getToken();
+                            String userId = response.body().getUserId();
 
                             AccountManager accountManager = AccountManager.get(getApplicationContext());
 
                             Account account = new Account(username, "com.vityur.appetizer.account");
-                            accountManager.addAccountExplicitly(account, password, null);
+
+                            Bundle userdata = new Bundle();
+                            userdata.putString("USER_ID", userId);
+                            accountManager.addAccountExplicitly(account, password, userdata);
+
                             accountManager.setAuthToken(account, "com.vityur.appetizer.account.token", authToken);
 
-                            Intent intent = new Intent(RegisterActivity.this, FeedActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                             startActivity(intent);
                             finish();
 
