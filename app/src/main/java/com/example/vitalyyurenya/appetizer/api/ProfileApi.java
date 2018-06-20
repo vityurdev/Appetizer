@@ -10,7 +10,7 @@ import retrofit2.http.HeaderMap;
 
 public interface ProfileApi {
 
-    String BASE_URL = "https://674ce85d.ngrok.io"; // ngrok (provide your own link)
+    String BASE_URL = "https://09a624d0.ngrok.io"; // ngrok (provide your own link)
 
     @GET("api/profile")
     Call<User> getOwnProfile(

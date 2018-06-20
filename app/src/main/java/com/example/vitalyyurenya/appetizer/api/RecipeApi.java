@@ -17,7 +17,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 public interface RecipeApi {
-    String BASE_URL = "https://674ce85d.ngrok.io"; // ngrok (provide your own link)
+    String BASE_URL = "https://09a624d0.ngrok.io"; // ngrok (provide your own link)
 
     /*
     @Multipart
