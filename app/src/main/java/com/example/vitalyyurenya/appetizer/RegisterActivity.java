@@ -68,6 +68,11 @@ public class RegisterActivity extends AppCompatActivity {
                         null,
                         null,
                         null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
                         null
                 );
 

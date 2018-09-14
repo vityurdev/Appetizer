@@ -1,5 +1,7 @@
 package com.example.vitalyyurenya.appetizer;
 
+import com.example.vitalyyurenya.appetizer.utils.UrlConverter;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,4 +16,7 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void converter_isCorrect() {assertEquals("http", UrlConverter.convert("http"));}
 }

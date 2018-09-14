@@ -2,6 +2,8 @@ package com.example.vitalyyurenya.appetizer.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class User {
     @SerializedName("_id")
     private String id;
@@ -27,6 +29,22 @@ public class User {
     @SerializedName("profilePhotoUrl")
     private String profilePhotoUrl;
 
+    @SerializedName("likes")
+    private List<Like> likes;
+
+    @SerializedName("posts")
+    private List<String> posts;
+
+    @SerializedName("following")
+    private List<String> following;
+
+    @SerializedName("followers")
+    private List<String> followers;
+
+    @SerializedName("favorites")
+    private List<String> favorites;
+
+
     public User(String id,
                 String username,
                 String email,
@@ -34,7 +52,12 @@ public class User {
                 String firstName,
                 String lastName,
                 String bio,
-                String profilePhotoUrl) {
+                String profilePhotoUrl,
+                List<Like> likes,
+                List<String> posts,
+                List<String> following,
+                List<String> followers,
+                List<String> favorites ) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -43,6 +66,11 @@ public class User {
         this.lastName = lastName;
         this.bio = bio;
         this.profilePhotoUrl = profilePhotoUrl;
+        this.likes = likes;
+        this.posts = posts;
+        this.following = following;
+        this.followers = followers;
+        this.favorites = favorites;
     }
 
     public String getId() {
@@ -108,4 +136,48 @@ public class User {
     public void setProfilePhotoUrl(String profilePhotoUrl) {
         this.profilePhotoUrl = profilePhotoUrl;
     }
+
+
+
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
+
+
+    public List<String> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<String> posts) {
+        this.posts = posts;
+    }
+
+    public List<String> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(List<String> following) {
+        this.following = following;
+    }
+
+    public List<String> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(List<String> followers) {
+        this.followers = followers;
+    }
+
+    public List<String> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(List<String> favorites) {
+        this.favorites = favorites;
+    }
+
 }

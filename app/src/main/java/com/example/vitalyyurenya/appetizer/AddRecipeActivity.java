@@ -103,7 +103,7 @@ public class AddRecipeActivity extends AppCompatActivity {
 
 
 
-                Recipe recipe = new Recipe(null, "lol", "lol", new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>(), "null", "lol", null, null, "s");
+                Recipe recipe = new Recipe(null, "lol", "lol", "lol", new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>(), "null", "lol", null, null, new ArrayList<String>());
                 Call<ResponseBody> req = recipeApi.uploadRecipe(
                         /*RequestBody.create(MediaType.parse("text/plain"), "title"),*/
                         MultipartBody.Part.createFormData(

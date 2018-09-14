@@ -2,6 +2,7 @@ package com.example.vitalyyurenya.appetizer.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Recipe {
@@ -11,17 +12,20 @@ public class Recipe {
     @SerializedName("title")
     private String title;
 
+    @SerializedName("authorId")
+    private String authorId;
+
     @SerializedName("authorUsername")
     private String authorUsername;
 
     @SerializedName("ingredients")
-    private List<String> ingredients;
+    private ArrayList<String> ingredients;
 
     @SerializedName("likes")
-    private List<String> likes;
+    private ArrayList<String> likes;
 
     @SerializedName("comments")
-    private List<String> comments;
+    private ArrayList<String> comments;
 
     @SerializedName("recipePhotoUrl")
     private String recipePhotoUrl;
@@ -36,12 +40,13 @@ public class Recipe {
     private String lastEditedAt;
 
     @SerializedName("directions")
-    private String directions;
+    private ArrayList<String> directions;
 
 
-    public Recipe(String id, String title, String authorUsername, List<String> ingredients, List<String> likes, List<String> comments, String recipePhotoUrl, String youtubeLink, String createdAt, String lastEditedAt, String directions) {
+    public Recipe(String id, String title, String authorId, String authorUsername, ArrayList<String> ingredients, ArrayList<String> likes, ArrayList<String> comments, String recipePhotoUrl, String youtubeLink, String createdAt, String lastEditedAt, ArrayList<String> directions) {
         this.id = id;
         this.title = title;
+        this.authorId = authorId;
         this.authorUsername = authorUsername;
         this.ingredients = ingredients;
         this.likes = likes;
@@ -69,6 +74,14 @@ public class Recipe {
         this.title = title;
     }
 
+    public String getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(String authorId) {
+        this.authorId = authorId;
+    }
+
     public String getAuthorUsername() {
         return authorUsername;
     }
@@ -77,27 +90,27 @@ public class Recipe {
         this.authorUsername = authorUsername;
     }
 
-    public List<String> getIngredients() {
+    public ArrayList<String> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(ArrayList<String> ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<String> getLikes() {
+    public ArrayList<String> getLikes() {
         return likes;
     }
 
-    public void setLikes(List<String> likes) {
+    public void setLikes(ArrayList<String> likes) {
         this.likes = likes;
     }
 
-    public List<String> getComments() {
+    public ArrayList<String> getComments() {
         return comments;
     }
 
-    public void setComments(List<String> comments) {
+    public void setComments(ArrayList<String> comments) {
         this.comments = comments;
     }
 
@@ -133,11 +146,11 @@ public class Recipe {
         this.lastEditedAt = lastEditedAt;
     }
 
-    public String getDirections() {
+    public ArrayList<String> getDirections() {
         return directions;
     }
 
-    public void setDirections(String directions) {
+    public void setDirections(ArrayList<String> directions) {
         this.directions = directions;
     }
 }

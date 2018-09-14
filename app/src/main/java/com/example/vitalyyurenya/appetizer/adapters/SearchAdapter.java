@@ -1,4 +1,6 @@
 package com.example.vitalyyurenya.appetizer.adapters;
 
-public class SearchAdapter {
+public class SearchAdapter  {
+
+
 }

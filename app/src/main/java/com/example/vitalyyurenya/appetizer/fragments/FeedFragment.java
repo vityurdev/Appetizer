@@ -108,6 +108,8 @@ public class FeedFragment extends Fragment {
             }
         });
 
+
+
         recipeList = new ArrayList<>();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -129,7 +131,7 @@ public class FeedFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
                 Log.i("lol", "Yaaaaaaay!");
-                Log.i("lol", Integer.toString(response.body().get(0).getComments().size()));
+                // Log.i("lol", Integer.toString(response.body().get(0).getComments().size()));
 
                 for (Recipe recipe: response.body()) {
                     recipeList.add(recipe);
@@ -149,52 +151,7 @@ public class FeedFragment extends Fragment {
             }
         });
 
-        /*
 
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-
-
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-
-        recipeList.add(new Recipe(
-                "1", "lol", "Hello", null, null, null,null,null,null,null,null)
-        );
-        */
-        /*
-        recipeAdapter = new RecipeAdapter(getContext(), recipeList);
-        recipeRecyclerView.setAdapter(recipeAdapter);*/
 
         return view;
     }

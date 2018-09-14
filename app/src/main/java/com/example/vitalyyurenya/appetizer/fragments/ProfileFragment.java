@@ -19,6 +19,7 @@ import com.example.vitalyyurenya.appetizer.AddRecipeActivity;
 import com.example.vitalyyurenya.appetizer.R;
 import com.example.vitalyyurenya.appetizer.api.ProfileApi;
 import com.example.vitalyyurenya.appetizer.models.User;
+import com.example.vitalyyurenya.appetizer.utils.UrlConverter;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -64,6 +65,20 @@ public class ProfileFragment extends Fragment {
         final RelativeLayout relativeLayout = view.findViewById(R.id.fragment_profile_relative_layout);
         final CircleImageView profilePhotoImageView = view.findViewById(R.id.fragment_profile_circle_image_view);
         final TextView nameAndSurnameTextView = view.findViewById(R.id.fragment_profile_name_surname);
+        final TextView usernameTextView = view.findViewById(R.id.fragment_profile_username);
+        final TextView bioTextView = view.findViewById(R.id.fragment_profile_bio);
+        final TextView likeCounterTextView = view.findViewById(R.id.fragment_profile_like_count_text_view);
+        final TextView recipeCounterTextView = view.findViewById(R.id.fragment_profile_recipe_count_text_view);
+        final TextView followersCounterTextView = view.findViewById(R.id.fragment_profile_followers_count_text_view);
+        final TextView followingCounterTextView = view.findViewById(R.id.fragment_profile_following_count_text_view);
+
+        nameAndSurnameTextView.setText("Loading...");
+        usernameTextView.setText("Loading...");
+        bioTextView.setText("Loading...");
+        likeCounterTextView.setText("–");
+        recipeCounterTextView.setText("–");
+        followersCounterTextView.setText("–");
+        followingCounterTextView.setText("–");
 
         addRecipeImageButton = view.findViewById(R.id.fragment_profile_add_recipe);
         addRecipeImageButton.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +129,10 @@ public class ProfileFragment extends Fragment {
                     String lastName = response.body().getLastName();
                     String bio = response.body().getBio();
                     String profilePhotoUrl = response.body().getProfilePhotoUrl();
+                    String likesCount = Integer.toString(response.body().getLikes().size());
+                    String postsCount = Integer.toString(response.body().getPosts().size());
+                    String followersCount = Integer.toString(response.body().getFollowers().size());
+                    String followingCount = Integer.toString(response.body().getFollowing().size());
 
                     Log.i("lol", "username: " + username);
                     Log.i("lol", "email: " + email);
@@ -122,15 +141,23 @@ public class ProfileFragment extends Fragment {
                     Log.i("lol", "lastName: " + lastName);
                     Log.i("lol", "bio: " + bio);
                     Log.i("lol", "profilePhotoUrl: " + profilePhotoUrl);
+                    Log.i("lol", "likes: " + response.body().getLikes().size());
 
                     progressBar.setVisibility(View.GONE);
                     relativeLayout.setVisibility(View.VISIBLE);
 
                     Picasso.get()
-                            .load(profilePhotoUrl)
+                            .load(UrlConverter.convert(profilePhotoUrl))
                             .into(profilePhotoImageView);
 
                     nameAndSurnameTextView.setText(firstName + " " + lastName);
+                    usernameTextView.setText("@" + username);
+                    bioTextView.setText(bio);
+
+                    likeCounterTextView.setText(likesCount);
+                    recipeCounterTextView.setText(postsCount);
+                    followersCounterTextView.setText(followersCount);
+                    followingCounterTextView.setText(followingCount);
 
                 }
             }

@@ -56,6 +56,11 @@ public class LoginActivity extends AppCompatActivity {
                         null,
                         null,
                         null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
                         null
                 );
 
@@ -112,12 +117,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
-
-
-
-
-
-
 
 
 
